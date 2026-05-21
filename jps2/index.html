@@ -1,0 +1,642 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jyoti Public School | Behrola (Palwal)</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#222;
+    }
+
+    /* HEADER */
+
+    header{
+      background:linear-gradient(135deg,#001f54,#0059b3);
+      padding:15px 8%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo-box{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo-box img{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:white;
+      padding:5px;
+    }
+
+    .logo-text h2{
+      color:white;
+      font-size:28px;
+    }
+
+    .logo-text p{
+      color:#ddd;
+      font-size:14px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+      flex-wrap:wrap;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffd54f;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+      url('tooper.png.jpeg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:800px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:22px;
+      margin-bottom:30px;
+      line-height:1.7;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#ffd54f;
+      color:black;
+      padding:14px 35px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    section{
+      padding:80px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .title h2{
+      font-size:42px;
+      color:#001f54;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#555;
+      font-size:18px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .about-text p{
+      margin-bottom:18px;
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    /* FACILITIES */
+
+    .facilities{
+      background:#eef4ff;
+    }
+
+    .facility-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:18px;
+      text-align:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card h3{
+      color:#0059b3;
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#555;
+      line-height:1.7;
+    }
+
+    /* TOPPER */
+
+    .topper{
+      text-align:center;
+    }
+
+    .topper img{
+      width:100%;
+      max-width:450px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    /* GALLERY */
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .gallery-grid img,
+    .gallery-grid video{
+      width:100%;
+      border-radius:18px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* ADMISSION FORM */
+
+    .admission-form{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .input-box{
+      margin-bottom:20px;
+    }
+
+    .input-box input,
+    .input-box textarea,
+    .input-box select{
+      width:100%;
+      padding:15px;
+      border:2px solid #dbe4ff;
+      border-radius:10px;
+      outline:none;
+      font-size:16px;
+    }
+
+    .input-box input:focus,
+    .input-box textarea:focus,
+    .input-box select:focus{
+      border-color:#0059b3;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      background:#001f54;
+      color:white;
+      border-radius:25px;
+      text-align:center;
+      padding:60px 30px;
+    }
+
+    .contact h2{
+      margin-bottom:25px;
+      font-size:40px;
+    }
+
+    .contact p{
+      margin:12px 0;
+      font-size:20px;
+    }
+
+    footer{
+      background:#000d26;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      nav{
+        justify-content:center;
+        gap:15px;
+      }
+
+      nav ul{
+        justify-content:center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo-box">
+
+        <img src="logo.png.jpeg" alt="School Logo">
+
+        <div class="logo-text">
+          <h2>Jyoti Public School</h2>
+          <p>Behrola (Palwal)</p>
+        </div>
+
+      </div>
+
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#admission">Admission</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+  <!-- HOME -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>Welcome To Jyoti Public School</h1>
+
+      <p>
+        Where Education Inspires Excellence.
+        We provide quality education with discipline,
+        smart learning, and all-round student development.
+      </p>
+
+      <a href="#admission" class="btn">Admission Open</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="title">
+      <h2>About Our School</h2>
+      <p>Learning Today, Leading Tomorrow</p>
+    </div>
+
+    <div class="about">
+
+      <img src="tooper.png.jpeg" alt="School Topper">
+
+      <div class="about-text">
+
+        <p>
+          Jyoti Public School, Behrola (Palwal), is dedicated to providing
+          excellent education and creating responsible citizens for the future.
+        </p>
+
+        <p>
+          Our school focuses on academic excellence, discipline,
+          smart education, sports activities, and moral values.
+        </p>
+
+        <p>
+          We believe every child has unique talent and we help students
+          grow with confidence, creativity, and knowledge.
+        </p>
+
+        <a href="#facilities" class="btn">Explore Facilities</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FACILITIES -->
+
+  <section class="facilities" id="facilities">
+
+    <div class="title">
+      <h2>School Facilities</h2>
+      <p>Modern Education With Better Environment</p>
+    </div>
+
+    <div class="facility-box">
+
+      <div class="card">
+        <h3>Smart Classes</h3>
+        <p>
+          Digital smart classrooms with modern teaching methods
+          for better understanding and learning.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Computer Lab</h3>
+        <p>
+          Advanced computer education to prepare students
+          for the digital future.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Sports Activities</h3>
+        <p>
+          Indoor and outdoor sports activities for fitness,
+          teamwork, and personality development.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Experienced Teachers</h3>
+        <p>
+          Qualified teachers dedicated to helping every student
+          achieve success in academics and life.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TOPPER -->
+
+  <section class="topper">
+
+    <div class="title">
+      <h2>Our School Topper</h2>
+      <p>Congratulations On Outstanding Performance</p>
+    </div>
+
+    <img src="tooper.png.jpeg" alt="School Topper">
+
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section id="gallery">
+
+    <div class="title">
+      <h2>School Gallery</h2>
+      <p>Photos & Videos</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <img src="school_ad.png.jpeg">
+
+      <img src="school_ad2.png.jpeg">
+
+      <video controls>
+        <source src="sc.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="result.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="pj.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="pj2.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+  </section>
+
+
+  <!-- ADMISSION FORM -->
+
+  <section id="admission">
+
+    <div class="title">
+      <h2>Online Admission Registration</h2>
+      <p>Fill The Form For Admission Enquiry</p>
+    </div>
+
+    <div class="admission-form">
+
+      <form onsubmit="submitForm(event)">
+
+        <div class="input-box">
+          <input type="text" id="studentName" placeholder="Student Name" required>
+        </div>
+
+        <div class="input-box">
+          <input type="text" id="fatherName" placeholder="Father Name" required>
+        </div>
+
+        <div class="input-box">
+          <input type="number" id="mobile" placeholder="Mobile Number" required>
+        </div>
+
+        <div class="input-box">
+          <select id="className" required>
+            <option value="">Select Class</option>
+            <option>Nursery</option>
+            <option>LKG</option>
+            <option>UKG</option>
+            <option>1st</option>
+            <option>2nd</option>
+            <option>3rd</option>
+            <option>4th</option>
+            <option>5th</option>
+            <option>6th</option>
+            <option>7th</option>
+            <option>8th</option>
+            <option>9th</option>
+            <option>10th</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <textarea id="address" rows="4" placeholder="Address"></textarea>
+        </div>
+
+        <button type="submit" class="btn">
+          Submit Registration
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <h2>Contact Us</h2>
+
+      <p><strong>School Name:</strong> Jyoti Public School</p>
+
+      <p><strong>Address:</strong> Behrola, Palwal, Haryana</p>
+
+      <p><strong>Phone:</strong> +91 9992453094</p>
+
+      <p><strong>Email:</strong> jyotipublicschool@gmail.com</p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Jyoti Public School | Behrola (Palwal)
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function submitForm(event){
+
+      event.preventDefault();
+
+      let studentName = document.getElementById("studentName").value;
+      let fatherName = document.getElementById("fatherName").value;
+      let mobile = document.getElementById("mobile").value;
+      let className = document.getElementById("className").value;
+      let address = document.getElementById("address").value;
+
+      let message =
+      "New Admission Registration:%0A%0A" +
+      "Student Name: " + studentName + "%0A" +
+      "Father Name: " + fatherName + "%0A" +
+      "Mobile: " + mobile + "%0A" +
+      "Class: " + className + "%0A" +
+      "Address: " + address;
+
+      window.open(
+        "https://wa.me/919992453094?text=" + message,
+        "_blank"
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
